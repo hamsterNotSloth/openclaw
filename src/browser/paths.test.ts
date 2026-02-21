@@ -102,4 +102,31 @@ describe("resolveExistingPathsWithinRoot", () => {
       }
     },
   );
+
+  it.runIf(process.platform !== "win32")(
+    "accepts canonical absolute paths that resolve inside a symlinked root",
+    async () => {
+      const baseDir = await fs.mkdtemp(path.join(os.tmpdir(), "openclaw-browser-paths-link-"));
+      cleanupDirs.add(baseDir);
+
+      const realUploadsDir = path.join(baseDir, "real-uploads");
+      const linkUploadsDir = path.join(baseDir, "uploads-link");
+      await fs.mkdir(realUploadsDir, { recursive: true });
+      await fs.symlink(realUploadsDir, linkUploadsDir);
+
+      const realFilePath = path.join(realUploadsDir, "resume.pdf");
+      await fs.writeFile(realFilePath, "resume", "utf8");
+
+      const result = await resolveExistingPathsWithinRoot({
+        rootDir: linkUploadsDir,
+        requestedPaths: [realFilePath],
+        scopeLabel: "uploads directory",
+      });
+
+      expect(result.ok).toBe(true);
+      if (result.ok) {
+        expect(result.paths).toEqual([await fs.realpath(realFilePath)]);
+      }
+    },
+  );
 });

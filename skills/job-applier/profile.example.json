@@ -1,0 +1,54 @@
+{
+  "identity": {
+    "fullName": "Jane Doe",
+    "email": "jane.doe@email.com",
+    "phone": "+1-555-0100",
+    "location": "San Francisco, CA, USA",
+    "linkedin": "https://www.linkedin.com/in/janedoe",
+    "yearsExperience": 6
+  },
+  "documents": {
+    "resumePath": "/Users/your-user/Documents/Resume.pdf",
+    "coverLetterTemplatePath": "/Users/your-user/Documents/CoverLetterTemplate.md"
+  },
+  "companyTargets": [
+    {
+      "company": "Stripe",
+      "careersUrl": "https://stripe.com/jobs/search",
+      "companyWebsite": "https://stripe.com",
+      "jobTitleHints": ["Software Engineer", "Backend Engineer"],
+      "notes": "Prioritize infrastructure and backend platform roles"
+    },
+    {
+      "company": "Datadog",
+      "companyWebsite": "https://www.datadoghq.com",
+      "jobTitleHints": ["Software Engineer", "Site Reliability Engineer"]
+    }
+  ],
+  "targetJobTitles": ["Software Engineer", "Backend Engineer", "Platform Engineer"],
+  "targetDomains": ["linkedin.com", "jobs.lever.co", "boards.greenhouse.io"],
+  "jobFilters": {
+    "includeKeywords": ["software engineer", "backend", "typescript", "node"],
+    "excludeKeywords": ["principal", "staff", "clearance", "unpaid"],
+    "allowLocations": ["Remote", "San Francisco Bay Area", "New York, NY"],
+    "allowRemote": true,
+    "minSalary": 140000
+  },
+  "workPrefs": {
+    "visaStatus": "H1B",
+    "sponsorshipNeeded": true,
+    "workAuthCountries": ["US"],
+    "noticePeriod": "2 weeks"
+  },
+  "screeningAnswers": {
+    "authorizedToWorkInUS": "Yes",
+    "requireSponsorship": "Yes",
+    "yearsOfBackendExperience": "6",
+    "comfortableWithHybrid": "Yes"
+  },
+  "resumeMatching": {
+    "enabled": true,
+    "maxInferredTitles": 10,
+    "minimumMatchScore": 0.5
+  }
+}

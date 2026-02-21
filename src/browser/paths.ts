@@ -1,3 +1,4 @@
+import fs from "node:fs/promises";
 import path from "node:path";
 import { SafeOpenError, openFileWithinRoot } from "../infra/fs-safe.js";
 import { resolvePreferredOpenClawTmpDir } from "../infra/tmp-openclaw-dir.js";
@@ -56,11 +57,29 @@ export async function resolveExistingPathsWithinRoot(params: {
 }): Promise<{ ok: true; paths: string[] } | { ok: false; error: string }> {
   const resolvedPaths: string[] = [];
   for (const raw of params.requestedPaths) {
-    const pathResult = resolvePathWithinRoot({
+    const rawPath = raw.trim();
+    let pathResult = resolvePathWithinRoot({
       rootDir: params.rootDir,
-      requestedPath: raw,
+      requestedPath: rawPath,
       scopeLabel: params.scopeLabel,
     });
+
+    if (!pathResult.ok && path.isAbsolute(rawPath)) {
+      try {
+        const rootReal = await fs.realpath(path.resolve(params.rootDir));
+        const requestedReal = await fs.realpath(rawPath);
+        const rel = path.relative(rootReal, requestedReal);
+        if (rel && !rel.startsWith("..") && !path.isAbsolute(rel)) {
+          pathResult = {
+            ok: true,
+            path: path.join(path.resolve(params.rootDir), rel),
+          };
+        }
+      } catch {
+        // Keep original validation error when canonical fallback cannot prove containment.
+      }
+    }
+
     if (!pathResult.ok) {
       return { ok: false, error: pathResult.error };
     }
