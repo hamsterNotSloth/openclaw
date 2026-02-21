@@ -1,0 +1,59 @@
+{
+  "identity": {
+    "fullName": "Yatharth Surana",
+    "email": "yashsurana2010@gmail.com",
+    "phone": "+91-9962416068",
+    "location": "India",
+    "linkedin": "https://www.linkedin.com/in/yatharth-surana/",
+    "yearsExperience": 8
+  },
+  "documents": {
+    "resumePath": "/Users/ysurana/.openclaw/workspace/skills/job-applier/docs/RESUME_Yatharth_Surana.pdf",
+    "coverLetterTemplatePath": "/Users/ysurana/.openclaw/workspace/skills/job-applier/cover-letter-template.md"
+  },
+  "companyTargets": [
+    {
+      "company": "OpenAI",
+      "companyWebsite": "https://openai.com",
+      "jobTitleHints": ["Software Engineer"]
+    },
+    {
+      "company": "Adyen",
+      "companyWebsite": "https://www.adyen.com",
+      "jobTitleHints": ["Software Engineer"]
+    }
+  ],
+  "targetJobTitles": ["Software Engineer"],
+  "targetDomains": ["openai.com", "jobs.ashbyhq.com", "adyen.com"],
+  "jobFilters": {
+    "includeKeywords": ["software engineer"],
+    "excludeKeywords": ["principal", "staff", "clearance", "unpaid"],
+    "allowLocations": ["Remote", "Europe", "EMEA", "EU", "London", "Dublin", "UK", "Ireland"],
+    "allowRemote": true,
+    "minSalary": 0
+  },
+  "workPrefs": {
+    "visaStatus": "Country-dependent",
+    "sponsorshipNeeded": true,
+    "workAuthCountries": ["EU"],
+    "noticePeriod": "1 month"
+  },
+  "screeningAnswers": {
+    "authorizedToWorkInCurrentJobCountry": "Country-dependent",
+    "requireSponsorship": "Yes",
+    "ableToWorkFromOffice": "Yes",
+    "willingToWorkFromOffice": "Yes",
+    "comfortableWorkingFromOffice": "Yes",
+    "availableForHybridOfficeWork": "Yes",
+    "ableToAttendOfficeThreeDaysPerWeek": "Yes",
+    "preferredDiscipline": "Back End / Infrastructure / AI Engineer",
+    "codingVsDesigning": "60% coding, 40% designing/managing juniors",
+    "codingTimePercentage": "60%",
+    "earliestStartAvailability": "1 month notice period"
+  },
+  "resumeMatching": {
+    "enabled": true,
+    "maxInferredTitles": 10,
+    "minimumMatchScore": 0.5
+  }
+}
